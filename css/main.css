@@ -41,4 +41,16 @@ span {
     padding-bottom: 20%;
 }
 
+#lang {
+    display: none;
+}
+#lang:checked ~ .ua,
+#lang:not(:checked) ~ .eng {
+    display:none;
+}
+label[for="lang"] {
+    user-select: none;
+    cursor: pointer;
+}
+
 

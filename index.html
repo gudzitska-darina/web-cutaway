@@ -7,6 +7,13 @@
     <title>Web-Cutaway</title>
 </head>
 <body>
+
+<div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 25px">
+    <input id="lang" type='checkbox' onclick="changeLagnuage()">
+    <button type="button" class="btn btn-outline-dark"><label for="lang" class="ua"></label><label for="lang" class="eng" text = "nameL"></label></button>
+</div>
+
+
 <div class="container px-4 py-5" id="custom-cards">
 
     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
@@ -14,8 +21,8 @@
             <div class="card card-cover h-100 bg-secondary bg-opacity-10 rounded-4 shadow-lg">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white">
                     <p></p>
-                    <h2 class="header">Про мене</h2>
-                    <span class="fw-lighter" style="margin-top: 7%">Я Гудзіцька Дарина Сергіївна. Студентка групи КП-02.</span>
+                    <h2 class="header" text="head1"></h2>
+                    <span class="fw-lighter" style="margin-top: 7%" text="about_me"></span>
 
                 </div>
             </div>
@@ -24,12 +31,8 @@
         <div class="col">
             <div class="card card-cover h-100 bg-secondary bg-opacity-10 rounded-4 shadow-lg">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white">
-                    <h2 class="header">Очікування від курсу</h2>
-                        <span class="fw-lighter">На цьому курсі я б хотіла дізнатися про принципи клієнт-серверної взаємодії.
-                            Спробувати Python як основний інстумент для розробки Back-end.
-                            Для роботи з Front-end хотілося б використовувати Vue.js або React.js.
-                            <p>Є бажання розробити інтернет магазин.</p>
-                        </span>
+                    <h2 class="header" text="head2"></h2>
+                        <span class="fw-lighter" text="expectation"></span>
 
 
                 </div>
@@ -39,10 +42,8 @@
         <div class="col">
             <div class="card card-cover h-100 bg-secondary bg-opacity-10 rounded-4 shadow-lg">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white fw-bold">
-                    <h2 class="header">Попередній досвід</h2>
-                    <span class="fw-lighter">Років 4-5 тому вивчала чистий HTML/CSS; трохи Bootstrap, jQuery.
-                        Тобто є трохи досвіду Front-end розробки.
-                        </span>
+                    <h2 class="header" text="head3"></h2>
+                    <span class="fw-lighter" text="experience"></span>
 
                 </div>
             </div>
@@ -51,5 +52,43 @@
 </div>
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    let ua = {
+        nameL: "ENG",
+        head1: "Про мене",
+        head2: "Очікування від курсу",
+        head3: "Попередній досвід",
+        about_me: "Я Гудзіцька Дарина Сергіївна. Студентка групи КП-02.",
+        expectation: "На цьому курсі я б хотіла дізнатися про принципи клієнт-серверної взаємодії.\n" +
+            "                            Спробувати Python як основний інстумент для розробки Back-end.\n" +
+            "                            Для роботи з Front-end хотілося б використовувати Vue.js або React.js.\n" +
+            "                            <p>Є бажання розробити інтернет магазин.</p>",
+        experience: "Років 4-5 тому вивчала чистий HTML/CSS; трохи Bootstrap, jQuery.\n" +
+            "                        Тобто є трохи досвіду Front-end розробки.",
+    };
+
+    let eng = {
+        nameL: "UAH",
+        head1: "About me",
+        head2: "Expectations from the course",
+        head3: "Previous experience",
+        about_me: "I am Hudzitka Daryna Serhiivna. A student of the KP-02 group.",
+        expectation: "In this course, I would like to learn about the principles of client-server interaction.\n" +
+            " Try Python as the main tool for Back-end development.\n" +
+            " For front-end work, I would like to use Vue.js or React.js.\n" +
+            " <p>There is a desire to develop an online store.</p>",
+        experience: "4-5 years ago I studied pure HTML/CSS; some Bootstrap, jQuery.\n" +
+            " That is, there is some experience in front-end development.",
+    };
+
+    changeLagnuage();
+
+    function changeLagnuage(){
+        let language = lang.checked ? ua : eng;
+        document.querySelectorAll('[text]').forEach(el => {
+            el.innerHTML = language[el.getAttribute('text')];
+        })
+    }
+</script>
 </body>
 </html>
